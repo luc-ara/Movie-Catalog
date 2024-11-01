@@ -1,0 +1,7 @@
+<h1>Lista de diretores</h1>
+
+<% @directors.each do |director| %>
+    <%= link_to director.name, director %><br>
+<%end%> <br>
+
+<%= link_to 'Cadastrar novo diretor', :new_director %>

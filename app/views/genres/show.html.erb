@@ -1,0 +1,18 @@
+<h1> <%= @genre.name %> </h1>
+
+<h2>Filmes nesse gênero</h2>
+<ul>
+    <% @genre.movies.each do |movie| %>
+        <li> 
+            <%= link_to movie do %>
+                <% if movie.poster.attached? %>
+                    <%= image_tag movie.poster, size: "50x75", alt: "#{movie.title} Poster" %>
+                <% end %> <br>
+
+                <%= "#{movie.title}, #{movie.release_year}, #{movie.release_year <= Time.current.year ? 'Já lançado' : 'A ser lançado'}" %>
+            <% end %> <br> <br>
+        </li>
+    <% end %>
+</ul>
+
+<p> <%= link_to 'Editar', edit_genre_path %> </p>
